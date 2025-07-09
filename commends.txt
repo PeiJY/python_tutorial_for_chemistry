@@ -1,0 +1,14 @@
+# if is the first time using conda, run to initialise conda
+conda init --all
+
+# create a conda envrionment named demo
+conda create -n demopython=3.10 
+
+# open the new environment
+conda activate demo
+
+# install all packages will be used in this tutorial
+pip install -r requirements.txt
+
+# run a python file
+python example1.py
