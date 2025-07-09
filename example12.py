@@ -33,16 +33,16 @@ cl_coords = np.array(cl_coords)
 
 # 4. Use KDTree to find Na-Cl pairs within 3 Å
 distance_matrix = cdist(na_coords, cl_coords)
-bonds = np.argwhere(distance_matrix < 3.18)
+bonds = np.argwhere(distance_matrix < 3)
 
 # 5. Create 3D plot
 fig = plt.figure(figsize=(8, 6))
 ax = fig.add_subplot(111, projection='3d')
 
 # Plot Na atoms
-na_scatter = ax.scatter(*na_coords.T, color='blue', label='Na', s=500, marker='o')
+na_scatter = ax.scatter(*na_coords.T, color='blue', label='Na', s=300, marker='o')
 # Plot Cl atoms
-cl_scatter = ax.scatter(*cl_coords.T, color='green', label='Cl', s=500, marker='o')
+cl_scatter = ax.scatter(*cl_coords.T, color='green', label='Cl', s=600, marker='o')
 
 # Draw bonds
 lines = []
@@ -64,7 +64,7 @@ ax.set_zlim(np.min([na_coords[:,2], cl_coords[:,2]]) - 1, np.max([na_coords[:,2]
 ax.set_xlabel("X (Å)")
 ax.set_ylabel("Y (Å)")
 ax.set_zlabel("Z (Å)")
-ax.set_title("NaCl 2x2x2 Supercell with Na-Cl Bonds (< 3 Å)")
+ax.set_title("NaCl 4x4x4 Supercell with Na-Cl Bonds (< 3 Å)")
 ax.legend()
 plt.tight_layout()
 
